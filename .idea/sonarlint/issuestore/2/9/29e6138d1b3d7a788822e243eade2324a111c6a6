@@ -1,0 +1,7 @@
+
+Œ
+java:S1319N"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(äð¹v8â¨ì³Ó1
+j
+java:S3824t"HReplace this "Map.containsKey()" with a call to "Map.computeIfAbsent()".(î¶œ›úÿÿÿÿ8ó¨ì³Ó1
+G	java:S106#"+Replace this use of System.out by a logger.(®¸—ù8õ¨ì³Ó1
+L	java:S106&"+Replace this use of System.out by a logger.(¼µƒøüÿÿÿÿ8ö¨ì³Ó1

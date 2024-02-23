@@ -1,0 +1,12 @@
+
+n
+java:S1192"QDefine a constant instead of duplicating this literal "Dequeued value: " 4 times.(Æ˜Îª8è´£ŽÒ1
+u	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(áûžK8é´£ŽÒ1
+G	java:S106"+Replace this use of System.out by a logger.(Æ½®ø8ì´£ŽÒ1
+G	java:S106"+Replace this use of System.out by a logger.(Æ˜Îª8ì´£ŽÒ1
+G	java:S106"+Replace this use of System.out by a logger.(Æ˜Îª8ì´£ŽÒ1
+G	java:S106"+Replace this use of System.out by a logger.(Æ½®ø8ì´£ŽÒ1
+G	java:S106"+Replace this use of System.out by a logger.(Æ˜Îª8í´£ŽÒ1
+G	java:S106"+Replace this use of System.out by a logger.(Æ˜Îª8í´£ŽÒ1
+L	java:S106!"+Replace this use of System.out by a logger.(ÂúæÕþÿÿÿÿ8í´£ŽÒ1
+F	java:S106$"+Replace this use of System.out by a logger.(Êçåt8í´£ŽÒ1
