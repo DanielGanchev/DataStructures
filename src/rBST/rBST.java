@@ -1,6 +1,7 @@
 package rBST;
 
 import java.util.ArrayList;
+import java.util.Stack;
 
 public class rBST {
 
@@ -201,6 +202,36 @@ public class rBST {
 
     new Traverse(root);
     return results;
+  }
+
+  public boolean isValidBST() {
+    ArrayList<Integer> nodeValues = DFSInOrder();
+    for (int i = 1; i < nodeValues.size(); i++) {
+      if (nodeValues.get(i) <= nodeValues.get(i - 1)) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+
+
+  public Integer kthSmallest(int k) {
+    Stack<Node> stack = new Stack<>();
+    Node currentNode = root;
+    while (currentNode != null || !stack.isEmpty()) {
+      while (currentNode != null) {
+        stack.push(currentNode);
+        currentNode = currentNode.left;
+      }
+      currentNode = stack.pop();
+      k--;
+      if (k == 0) {
+        return currentNode.value;
+      }
+      currentNode = currentNode.right;
+    }
+    return null;
   }
 
 

@@ -177,6 +177,39 @@ public Node remove(int index){
     length--;
     return temp;
 }
+
+ public boolean isPalindrome(){
+    if (length <= 1){
+      return true;
+    }
+    Node current = head;
+    Node tailNode = tail;
+    for (int i = 0; i < length / 2; i++){
+      if (current.value != tailNode.value){
+        return false;
+      }
+      current = current.next;
+      tailNode = tailNode.prev;
+    }
+    return true;
+ }
+
+ public void swapPairs(){
+    if (length < 2){
+      return;
+    }
+    Node firstNode = head;
+    Node secondNode = head.next;
+    while (firstNode != null && secondNode != null){
+      int temp = firstNode.value;
+      firstNode.value = secondNode.value;
+      secondNode.value = temp;
+      firstNode = secondNode.next;
+      if (firstNode != null){
+        secondNode = firstNode.next;
+      }
+    }
+ }
 }
 
 

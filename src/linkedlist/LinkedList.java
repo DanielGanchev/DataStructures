@@ -59,7 +59,7 @@ public class LinkedList {
 
   public Node removeLast() {
     if (length == 0) {
-        return null;
+      return null;
     }
     Node temp = head;
     Node preTail = head;
@@ -76,6 +76,7 @@ public class LinkedList {
     }
     return temp;
   }
+
   public void prepend(int value) {
     Node newNode = new Node(value);
     if (length == 0) {
@@ -115,9 +116,9 @@ public class LinkedList {
     return temp;
   }
 
-  public boolean set (int index, int value){
+  public boolean set(int index, int value) {
     Node temp = get(index);
-    if (temp != null){
+    if (temp != null) {
       temp.value = value;
       return true;
     }
@@ -144,14 +145,14 @@ public class LinkedList {
     return true;
   }
 
-  public Node remove(int index){
-    if (index < 0 || index >= length){
+  public Node remove(int index) {
+    if (index < 0 || index >= length) {
       return null;
     }
-    if (index == 0){
+    if (index == 0) {
       return removeFirst();
     }
-    if (index == length - 1){
+    if (index == length - 1) {
       return removeLast();
     }
     Node temp = get(index - 1);
@@ -169,20 +170,21 @@ public class LinkedList {
     Node after = temp.next;
     Node before = null;
 
-for (int i = 0; i < length; i++){
-  after = temp.next;
-  temp.next = before;
-  before = temp;
-  temp = after;
-}
+    for (int i = 0; i < length; i++) {
+      after = temp.next;
+      temp.next = before;
+      before = temp;
+      temp = after;
+    }
 
     System.out.println("n\\/a");
   }
-  public Node findMiddleNode () {
+
+  public Node findMiddleNode() {
     Node slowPointer = head;
     Node fastPointer = head;
 
-    while (fastPointer != null && fastPointer.next != null){
+    while (fastPointer != null && fastPointer.next != null) {
       slowPointer = slowPointer.next;
       fastPointer = fastPointer.next.next;
     }
@@ -195,42 +197,115 @@ for (int i = 0; i < length; i++){
     length = 0;
   }
 
- public boolean hasLoop() {
+  public boolean hasLoop() {
     Node slowPointer = head;
     Node fastPointer = head;
 
-    while (fastPointer != null && fastPointer.next != null){
+    while (fastPointer != null && fastPointer.next != null) {
       slowPointer = slowPointer.next;
       fastPointer = fastPointer.next.next;
 
-      if (slowPointer == fastPointer){
+      if (slowPointer == fastPointer) {
         return true;
       }
     }
     return false;
- }
+  }
 
 
- public Node findKthFromEnd(int k){
-
+  public Node findKthFromEnd(int k) {
 
     Node slowPointer = head;
     Node fastPointer = head;
 
-    for (int i = 0; i < k; i++){
-      if (fastPointer == null){
+    for (int i = 0; i < k; i++) {
+      if (fastPointer == null) {
         return null;
       }
       fastPointer = fastPointer.next;
     }
 
-    while (fastPointer != null){
+    while (fastPointer != null) {
       slowPointer = slowPointer.next;
       fastPointer = fastPointer.next;
     }
     return slowPointer;
 
- }
+  }
+
+  public void partitionList(int x) {
+    Node beforeHead = new Node(0);
+    Node before = beforeHead;
+    Node afterHead = new Node(0);
+    Node after = afterHead;
+
+    Node temp = head;
+
+    while (temp != null) {
+      if (temp.value < x) {
+        before.next = temp;
+        before = temp;
+      } else {
+        after.next = temp;
+        after = temp;
+      }
+      temp = temp.next;
+    }
+    after.next = null;
+    before.next = afterHead.next;
+    head = beforeHead.next;
+  }
+
+  public void removeDuplicates() {
+    Node current = head;
+    while (current != null) {
+      Node temp = current;
+      while (temp != null && temp.value == current.value) {
+        temp = temp.next;
+      }
+      current.next = temp;
+      current = current.next;
+    }
+  }
+
+  public int binaryToDecimal() {
+    Node temp = head;
+    int result = 0;
+    while (temp != null) {
+      result = result * 2 + temp.value;
+      temp = temp.next;
+    }
+    return result;
+  }
+
+
+
+  public void reverseBetween(int startIndex, int endIndex) {
+    if (head == null) return;
+
+    Node dummyNode = new Node(0);
+    dummyNode.next = head;
+    Node previousNode = dummyNode;
+
+    for (int i = 0; i < startIndex; i++) {
+      previousNode = previousNode.next;
+    }
+
+    Node currentNode = previousNode.next;
+
+    for (int i = 0; i < endIndex - startIndex; i++) {
+      Node nodeToMove = currentNode.next;
+      currentNode.next = nodeToMove.next;
+      nodeToMove.next = previousNode.next;
+      previousNode.next = nodeToMove;
+    }
+
+    head = dummyNode.next;
+  }
+
+
+
+  }
 
 
 
@@ -244,4 +319,4 @@ for (int i = 0; i < length; i++){
 
 
 
-}
+
